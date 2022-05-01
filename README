@@ -1,0 +1,5 @@
+composer require symfony/http-client
+
+composer require symfonycasts/verify-email-bundle
+
+composer require symfony/mailer
