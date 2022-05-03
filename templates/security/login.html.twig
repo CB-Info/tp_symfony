@@ -1,28 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion !{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+<section class="vh-100">
+    <form method="post">
+        <div class="container py-5 h-100">
+        {% if error %}
+            <div class="alert alert-danger" style="border-radius: 1rem;">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="alert alert-info mb-3" style="border-radius: 1rem;">
+                You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <div class="mb-md-5 mt-md-4 pb-5">
+
+                                <h2 class="fw-bold display-6 mb-2 text-uppercase">Connexion</h2>
+                                <p class="text-white-50 mb-5">Entrez vos indentifiants</p>
+
+                                <div class="form-outline form-white mb-4">
+                                    <input type="email" name="email" value="{{ last_username }}" id="inputEmail" class="form-control form-control-lg" autocomplete="email"/>
+                                    <label  class="form-label">Email</label>
+                                </div>
+
+                                <div class="form-outline form-white mb-4">
+                                    <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" autocomplete="current-password"/>
+                                    <label class="form-label" >Mot de passe</label>
+                                </div>
+
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Connexion</button>
+
+                            </div>
+
+                            <div>
+                                <p class="mb-0">Pas encore de compte ? 
+                                    <a href="/register" class="text-white-50 fw-bold">Inscrivez vous</a>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}"
+        >
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -34,9 +67,7 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
+    </form>
+</section>
 {% endblock %}
+

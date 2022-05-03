@@ -18,7 +18,7 @@ class AccueilController extends AbstractController
         // dd($callApiService->getFilmData());
         return $this->render('accueil/index.html.twig', [
             'categories' => $callApiService->getFilmCatData(),
-            'populaires' => $callApiService->getPopuData()
+
         ]);
     }
 
