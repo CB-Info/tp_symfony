@@ -14,7 +14,7 @@
 						<div class="card shadow-lg h-100 m-2 bg-dark text-white border-warning" style="border-radius: 1rem;">
 							<div class="card-body">
 								<h5 class="card-title">{{ categorie.name }}</h5>
-								<a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Parcourir la catégorie</a>
+								<a href="{{ path('app_categorie', {'idCat': categorie.id}) }}" class="btn btn-secondary" role="button" aria-pressed="true">Parcourir la catégorie</a>
 							</div>
 						</div>
 					</div>
