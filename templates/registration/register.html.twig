@@ -3,15 +3,60 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <section class="vh-100 ">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card shadow-2-strong card-registration bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-4 p-md-5">
+            <h1 class="mb-4 pb-2 pb-md-0 mb-md-5 display-6 text-uppercase fw-bold">Inscription</h1>
+            {{ form_start(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+              <div class="row">
+                <div class="col-md-6 mb-4">
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                  <div class="form-outline">
+                    <label class="form-label" >{{ form_row(registrationForm.pseudo) }}</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" >{{ form_row(registrationForm.email) }}</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 ">
+                    <div class="form-outline">
+                      <label class="form-label" >{{ form_row(registrationForm.plainPassword, {
+                                                                label: 'Password'
+                                                                }) }}
+                        </label>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                      <label class="form-label" >{{ form_row(registrationForm.agreeTerms)}}</label>
+                    </div>
+                </div>
+              </div>
+
+              <div >
+                <button type="submit" class="btn btn-primary btn-lg">Inscription</button>
+              </div>
+
+            {{ form_end(registrationForm) }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
+
+

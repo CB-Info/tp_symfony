@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Films populaires{% endblock %}
+
+{% block body %}
+<div class="album py-5" id="france">
+		<div class="container">
+            <h1 class="mb-5 text-white display-4">Films populaires</h1>
+
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% for populaire in populaires.results %}
+				<div class="col">
+					<div class="card shadow-sm h-100 bg-dark text-white" style="border-radius: 1rem;">
+						<div class="card-body">
+							<h5 class="card-title">{{ populaire.title}}</h5>
+								<img src="https://image.tmdb.org/t/p/w154{{populaire.poster_path}}">
+								<p class="pt-3 card-text ">{{ populaire.overview ? populaire.overview|slice(0, 255)~'...' : 'Pas de synopsis' }}</p>
+						</div>
+                        <a href=" {{ path('app_film', {'idFilm': populaire.id}) }}" class="card-footer bg-warning text-dark mx-2 mb-2 rounded-pill btn btn-primary" role="button" aria-pressed="true">En savoir plus</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

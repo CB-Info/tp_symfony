@@ -1,49 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AccueilController!{% endblock %}
+{% block title %}Bienvenue{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 <div class="album py-5" id="france">
 		<div class="container">
-            <h1 class="mb-5">Catégories de films</h1>
+            
+            <h1 class="mb-5 text-white display-4">Catégories</h1>
 
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
-				<div class="col">
-					<div class="card shadow-sm h-100">
-						<div class="card-body">
-							<h5 class="card-title">{{ categories.genres.0.name}}</h5>
-								<p class="card-text">A la recherche d'adrénaline ?</p>
-						</div>
-                        <h3 class="card-footer bg-warning text-dark mx-2 rounded-pill"></h3>
-					</div>
-				</div>
-
-				<div class="col">
-					<div class="card shadow-sm">
-						<div class="card-body">
-							<h5 class="card-title">{{ categories.genres.1.name}}</h5>
-							<p class="card-text">Nombre de personnes actuellement en réanimation</p>
-						</div>
-                        <h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ data.FranceGlobalLiveData.0.reanimation }}</h3>
-					</div>
-				</div>
-
-				<div class="album py-5">
-		<div class="container">
-            <h1 class="mb-5">Films Popu ?</h1>
-
-			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-				{% for populaire in populaires.results %}
+				{% for categorie in categories.genres %}
 					<div class="col">
-						<div class="card shadow-lg h-100 m-2">
+						<div class="card shadow-lg h-100 m-2 bg-dark text-white border-warning" style="border-radius: 1rem;">
 							<div class="card-body">
-								<h5 class="card-title">{{ populaire.title }}</h5>
-								<a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Plus de chiffres</a>
+								<h5 class="card-title">{{ categorie.name }}</h5>
+								<a href="#" class="btn btn-secondary" role="button" aria-pressed="true">Parcourir la catégorie</a>
 							</div>
 						</div>
 					</div>

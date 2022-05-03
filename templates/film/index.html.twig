@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ film.title }}{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="/css/try.css">
+{# style="background-image:url('https://image.tmdb.org/t/p/w154{{ film.backdrop_path }}'); height: 100vh" #}
+<div class="container mt-3 mx-auto">
+
+	<div class="row text-center">
+		<div class="col">
+			<div class="card mb-4 shadow-sm border-warning bg-dark text-white" style="border-radius: 1rem;">
+				<div class="card-header border-warning">
+					<h1 class="display-4">
+						{{ film.title }}</h1>
+					
+				</div>
+
+				<div class="card-body ">
+					<img src="https://image.tmdb.org/t/p/w154{{film.poster_path}}">
+					<p class="pt-4 lead">Durée :
+						{{ film.runtime }} secondes</p>
+					<p class="lead">Date de sortie :
+						{{ film.release_date }}</p>					
+				</div>
+				<div class="card-footer border-warning">
+						<p class="lead">Synopsis :</p>
+						<h6 class="card-title pricing-card-title">{{ film.overview }}</h6>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+{% endblock %}
